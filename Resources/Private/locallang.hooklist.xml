@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="mlang_tabs_tab">HookList</label>
+			<label index="mlang_labels_tabdescr">Checks the codebase for existing hookpoints</label>
+			<label index="mlang_labels_tablabel">hook point list</label>
+			
+			<label index="menu.hooklist.list">Hooklist</label>
+			
+			<label index="title">HookList</label>
+			<label index="hooksFound">The following possible hook-points have been found in %1s:</label>
+			<label index="noHooksFound">Sorry, no hook-points have been found for %1s.</label>
+			<label index="noTokenizer">This extension requires the Tokenizer PHP-extension!</label>
+			<label index="introText">This extension will parse the php files found in the directory you specify by selecting a target in the selectbox above.&lt;br /&gt;&lt;br /&gt;After that it generates a list of all hook-points that can be used to extend existing functionality.</label>
+			<label index="function1">choose function</label>
+			<label index="function2">all sources</label>
+			<label index="function3">the TYPO3 sources</label>
+			<label index="function4">local extensions</label>
+			<label index="function5">global extensions</label>
+			<label index="function6">system extensions</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="mlang_tabs_tab">HookList</label>
+			<label index="mlang_labels_tabdescr">Checks the codebase for existing hookpoints</label>
+			<label index="mlang_labels_tablabel">hook point list</label>
+			
+			<label index="menu.hooklist.list">Hooklist</label>
+			
+			<label index="title">HookListe</label>
+			<label index="hooksFound">Die folgenden Hook-Punkte wurden für %1s gefunden:</label>
+			<label index="noHooksFound">Es wurden leider keine Hook-Punkte für %1s gefunden.</label>
+			<label index="noTokenizer">Diese Extension benötigt die Tokenizer PHP-Extension!</label>
+			<label index="introText">Diese Extension wird all PHP Dateien parsen, die sich im Verzeichnis befinden, dass Sie über die Selectbox oben rechts angeben.&lt;br /&gt;&lt;br /&gt;Anschließend wird eine Liste aller Hook-Punkte erstellt, über die bestehende Funktionalität erweitert werden kann.</label>
+			<label index="function1">Funktion wählen</label>
+			<label index="function2">alle Sourcen</label>
+			<label index="function3">TYPO3 Sourcen</label>
+			<label index="function4">lokale Extensions</label>
+			<label index="function5">globale Extensions</label>
+			<label index="function6">system Extensions</label>
+		</languageKey>
+	</data>
+</T3locallang>

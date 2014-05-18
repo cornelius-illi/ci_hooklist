@@ -1,0 +1,17 @@
+14-05-18 v1.1.0		Cornelius Illi <mail@corneliusilli.de>
+	* compatibility for TYPO3 >= 6.0, not backwards compatible
+	
+07-07-20 v1.0.2		Dominique Stender	<dst@dmc.de>
+	* improved detection algorithm  to find more hookpoints
+		(thanks to steffen@dislabs.de)
+	* added a check for PHP safe_mode state before calling set_time_limit(0).
+		(thanks to Marcus Krause)
+
+07-04-29 v1.0.1		Dominique Stender	<dst@dmc.de>
+	* removed whitespace tokens to improve hook-point recognition
+		(thanks to Sebastian Kurfürst for pointing this out)
+	* fixed some typo in the documentation
+	* added infinite runtime for the parsing process
+
+07-04-28 v1.0.0		Dominique Stender  <dst@dmc.de>
+	* Initial release
