@@ -23,30 +23,59 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-class BackendHookListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class Tx_CiHooklist_Controller_BackendHookListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
-  /**
-   * Main action
-   */
-  public function listAction() {
-		$this->moduleContent();
-  }
-	
-	
 	/**
 	 * Initializes the Module
 	 *
 	 * @access	public
 	 * @return	void
 	 */
-	function initialize()	{
-		
-    // REBDERUBG
+	function initializeAction()	{
+    // RENDERING
 		$this->template = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Template\\DocumentTemplate');
     $pageRenderer = $this->template->getPageRenderer();
 
     // $pageRenderer->addJsFile(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('ci_hooklist') . 'Resources/Public/x.js');
     // $pageRenderer->addCssFile(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('ci_hooklist') . 'Resources/Public/Backend/Css/x.css');
+	}
+
+  /**
+   * Main action
+   */
+  public function indexAction() {
+		$this->moduleContent(1);
+  }
+	
+  public function listAllAction() {
+		$this->moduleContent(2);
+  }
+	
+  public function listTypo3Action() {
+		$this->moduleContent(3);
+  }
+	
+  public function listLocalAction() {
+		$this->moduleContent(4);
+  }
+	
+  public function listGlobalAction() {
+		$this->moduleContent(5);
+  }
+	
+  public function listSystemAction() {
+		$this->moduleContent(6);
+  }
+	
+  /**
+   * Translate key
+   *
+   * @param   string      $key        Translation key
+   * @param   NULL|array  $arguments  Arguments (vsprintf)
+   * @return  NULL|string
+   */
+  protected function _translate($key, $arguments = NULL) {
+  	 return \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $this->extensionName, $arguments);
 	}
 
 	/**
@@ -55,10 +84,8 @@ class BackendHookListController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	 * @access	protected
 	 * @return	void
 	 */
-	function moduleContent() {
+	function moduleContent($functionNum=1) {
 		$baseDir		= '';
-		$functionNum	= (string) $this->MOD_SETTINGS['function'];
-
 		switch($functionNum) {
 			case 2:
 				// all sources
@@ -95,12 +122,7 @@ class BackendHookListController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 					} // end: foreach
 				} // end: if
 
-				if (function_exists('token_get_all')) {
-					$this->content .= $LANG->getLL('introText');
-
-				} else {
-					$this->content .= $LANG->getLL('noTokenizer');
-				} // end: if
+				$this->view->assign('hasTokenizer', function_exists('token_get_all'));
 		} // end: switch
 
 		// if a basedir is set, start fetching files and generate the tokens
@@ -113,26 +135,22 @@ class BackendHookListController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			} // end: if
 
 			$hookList 	= '';
-			$hooks		= array();
 			$files		= $this->recFind($baseDir, '\.php$');
-			$content	= '';
+			$content	= array();
+			$message = "";
 
 			foreach ($files as $file) {
-				$hookList = $this->generateHookList($file);
+				$content[] = $this->generateHookList($file);
+			}
 
-				if ($hookList != '') {
-					$content .= $this->doc->section('~' . str_replace(PATH_site, '', $file) . ':', $hookList, 1, 1)
-							. '<br /><br />';
-				} // end: if
-			} // end: foreach
-
-			if ($content != '') {
-				$this->content .= sprintf($LANG->getLL('hooksFound'), $LANG->getLL('function' . $functionNum))
-								. $content;
-
+			if (!empty($content)) {
+				$message = $this->_translate('hooksFound') . $this->_translate('function' . $functionNum);
 			} else {
-				$this->content .= sprintf($LANG->getLL('noHooksFound'), $LANG->getLL('function' . $functionNum));
-			} // end: if
+				$message = $this->_translate('noHooksFound') . $this->_translate('function' . $functionNum);
+			} 
+			
+			$this->view->assign('message', $message);
+			$this->view->assign('content', $content);
 		} // end: if
 	}
 
@@ -208,7 +226,7 @@ class BackendHookListController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 				// complex token
 
 				switch ($tokens[$i][0]) {
-
+					// http://us3.php.net/manual/en/tokens.php
 					case T_ENCAPSED_AND_WHITESPACE:
 					case T_WHITESPACE:
 						// not doing anything here, get rid of whitespace

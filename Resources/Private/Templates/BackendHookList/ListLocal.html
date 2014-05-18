@@ -1,0 +1,23 @@
+<f:layout name="BackendStandard" />
+
+<f:section name="content">
+	<div id="tx-cihooklist">
+		<p>{message}</p>
+		<f:if condition="{content}">
+			<f:for each="{content}" as="hook">
+				<f:format.raw>{hook}</f:format.raw>
+			</f:for>
+		</f:if>
+	</div>
+</f:section>
+
+<f:section name="button-toolbar">
+	<f:be.menus.actionMenu>
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function1')}" controller="BackendHookList" action="index" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function2')}" controller="BackendHookList" action="listAll" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function3')}" controller="BackendHookList" action="listTypo3" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function4')}" controller="BackendHookList" action="listLocal" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function5')}" controller="BackendHookList" action="listGlobal" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function6')}" controller="BackendHookList" action="listSystem" />
+	</f:be.menus.actionMenu>
+</f:section>

@@ -13,7 +13,7 @@ if (TYPO3_MODE=="BE")	{
       'tools',
       'hooklist',
       '', # Position
-      array('BackendHookList' => 'list'), # Controller array
+      array('BackendHookList' => 'index,listAll,listLocal,listGlobal,listTypo3,listSystem'), # Controller array
       array(
           'access' => 'user,group',
           'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',

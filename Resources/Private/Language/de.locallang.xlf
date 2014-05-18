@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-05-18T16:20:51Z" product-name="ci_hooklist">
+		 <header/>
+		 <body>
+			 <trans-unit id="function1" xml:space="preserve">
+				 <source>choose function</source>
+				 <target>Wähle Funktion</target>
+			 </trans-unit>
+			 <trans-unit id="function2" xml:space="preserve">
+				 <source>all sources</source>
+				 <target>Alle Quellen</target>
+			 </trans-unit>
+			 <trans-unit id="function3" xml:space="preserve">
+				 <source>the TYPO3 sources</source>
+				 <target>TYPO3 Sources</target>
+			 </trans-unit>
+			 <trans-unit id="function4" xml:space="preserve">
+				 <source>local extensions</source>
+				 <target>Lokale Extensions</target>
+			 </trans-unit>
+			 <trans-unit id="function5" xml:space="preserve">
+				 <source>global extensions</source>
+			 	 <target>Globale Extensions</target>
+			 </trans-unit>
+			 <trans-unit id="function6" xml:space="preserve">
+				 <source>system extensions</source>
+			 	 <target>System-Extensions</target>
+			 </trans-unit>
+
+			 <trans-unit id="noTokenizer" xml:space="preserve">
+				 <source>This extension requires the Tokenizer PHP-extension!</source>
+		 		 <target>Diese Extension erfordert die Installation der PHP-Extension: Tokenizer!</target>
+		 	</trans-unit>
+			 <trans-unit id="introtext" xml:space="preserve">
+				 <source>This extension will parse the php files found in the directory you specify by selecting a target in the selectbox above. 
+				 After that it generates a list of all hook-points that can be used to extend existing functionality.</source>
+			 	<target>Diese Extension wird all PHP Dateien parsen, die sich im Verzeichnis befinden, dass Sie über die Selectbox oben rechts angeben.
+					Anschließend wird eine Liste aller Hook-Punkte erstellt, über die bestehende Funktionalität erweitert werden kann.</target>
+			 </trans-unit>         
+		 </body>
+	</file>
+</xliff>

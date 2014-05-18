@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-05-18T16:20:51Z" product-name="ci_hooklist">
+		 <header/>
+		 <body>
+			 <trans-unit id="function1" xml:space="preserve"><source>choose function</source></trans-unit>
+			 <trans-unit id="function2" xml:space="preserve"><source>all sources</source></trans-unit>
+			 <trans-unit id="function3" xml:space="preserve"><source>the TYPO3 sources</source></trans-unit>
+			 <trans-unit id="function4" xml:space="preserve"><source>local extensions</source></trans-unit>
+			 <trans-unit id="function5" xml:space="preserve"><source>global extensions</source></trans-unit>
+			 <trans-unit id="function6" xml:space="preserve"><source>system extensions</source></trans-unit>
+
+			 <trans-unit id="noTokenizer" xml:space="preserve"><source>This extension requires the Tokenizer PHP-extension!</source></trans-unit>
+			 <trans-unit id="introtext" xml:space="preserve"><source>This extension will parse the php files found in the directory you specify by selecting a target in the selectbox above. 
+				 After that it generates a list of all hook-points that can be used to extend existing functionality.</source></trans-unit>         
+		 </body>
+	</file>
+</xliff>

@@ -1,0 +1,27 @@
+<f:layout name="BackendStandard" />
+
+<f:section name="content">
+	<div id="tx-cihooklist">
+		<f:if condition="{hasTokenizer}">
+			<f:then> <f:translate key="LLL:EXT:ci_hooklist/Resources/Private/Language/locallang.xlf:introtext" /> </f:then>
+			<f:else> <f:translate key="LLL:EXT:ci_hooklist/Resources/Private/Language/locallang.xlf:noTokenizer" /> </f:else>
+		</f:if>
+		
+		<f:if condition="{content}">
+			<f:for each="{content}" as="hook">
+				<f:format.htmlentities>{hook}</f:format.htmlentities>
+			</f:for>
+		</f:if>
+	</div>
+</f:section>
+
+<f:section name="button-toolbar">
+	<f:be.menus.actionMenu>
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function1')}" controller="BackendHookList" action="index" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function2')}" controller="BackendHookList" action="listAll" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function3')}" controller="BackendHookList" action="listTypo3" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function4')}" controller="BackendHookList" action="listLocal" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function5')}" controller="BackendHookList" action="listGlobal" />
+		<f:be.menus.actionMenuItem label="{f:translate(key: 'function6')}" controller="BackendHookList" action="listSystem" />
+	</f:be.menus.actionMenu>
+</f:section>
