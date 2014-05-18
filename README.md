@@ -4,5 +4,5 @@ Checks the installed codebase for existing hook-points which enable you to exten
 This version is a branch of "dmc_hooklist" with added compatibility for TYPO3 > 6.0 (not backwards compatible).
 
 Credits
-_______
+-------
 Cornelius Illi, Dominique Stender

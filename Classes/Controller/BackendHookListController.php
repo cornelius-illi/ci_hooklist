@@ -180,6 +180,9 @@ class Tx_CiHooklist_Controller_BackendHookListController extends \TYPO3\CMS\Extb
 
 			// walk through the tokens and find hooks
 			$hooks	= $this->findHooks($tokens);
+			
+			// free memory
+			$tokens = NULL;
 
 			// append list of hooks to content
 			foreach ($hooks as $hookPoint) {
